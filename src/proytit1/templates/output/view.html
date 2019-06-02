@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+ {% block content %} 
+	<h1>{{titulo}}</h1>
+	<ul>
+		<li> Ruta de Archivo : {{output.root}} </li>
+		<li> {% if input.description != '' %}{{output.description}}{% else %} Descripcion se esta escribiendo {% endif %} </li>
+	</ul>
+
+{% endblock %}
