@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from output.models import Output
 
 # Create your views here.
 def output_single_view(request, output_id):

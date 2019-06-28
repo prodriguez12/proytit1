@@ -3,17 +3,17 @@
  {% block content %} 
 	<h1>{{titulo}}</h1>
 	<ul>
-		<li> Set de Datos : {{input.GPS_layer}} </li>
+		<li><b> Set de Datos :</b> {{input.GPS_layer}} </li>
 		<p></p>
-		<li> Red Vial : {{input.red_vial_layer}} </li>
+		<li><b> Red Vial :</b> {{input.red_vial_layer}} </li>
 		<p></p>
-		<li> Ruta de Base de Datos : {{input.gbd_root}} </li>
+		<li><b> Ruta de Base de Datos :</b> {{input.gbd_root}} </li>
 		<p></p>
-		<li> Sistema de Medidas : {{input.metrica}} </li>
+		<li><b> Sistema de Medidas :</b> {{input.metrica}} </li>
 		<p></p>
-		<li> Comprimido de Base de Datos : {{input.gbd.path}} </li>
+		<li><b> Comprimido de Base de Datos :</b> {{input.gbd.path}} </li>
 		<p></p>
-		<li> Descripción : {% if input.description != '' %}{{input.description}}{% else %} Descripcion se esta escribiendo {% endif %} </li>
+		<li><b> Descripción :</b> {% if input.description != '' %}{{input.description}}{% else %} Descripcion se esta escribiendo {% endif %} </li>
 	</ul>
 
 	<a href="/apply/{{input.id}}"> Aplicar algoritmo</a>
