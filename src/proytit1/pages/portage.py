@@ -1,12 +1,13 @@
-from functions import *
+from pages.functions import *
 
-root =r"C:\Users\Patricio\Dev\PortageRoads\portage.gdb"
-spd_tol = 15
-buffr = 20
-n_freq = 10
-np = 5
+1root =r"C:\Users\Patricio\Dev\PortageRoads\portage.gdb"
+1spd_tol = 15
+1buffr = 20
+1n_freq = 10
+1np = 5
+1input_data = "3130168102"
 
-def algoritmo(root, spd_tol, buffr, n_freq, np):
+def algoritmo(root, spd_tol, buffr, n_freq, np, input_data):
     arcpy.env.overwriteOutput = True        
     arcpy.env.workspace = root
 
@@ -33,7 +34,7 @@ def algoritmo(root, spd_tol, buffr, n_freq, np):
     ## amount of points
     n_points = np
     ## feature class data 
-    fc_data = "3130168102"
+    fc_data = input_data
 
     for samp_freq in samp_freq_List:
         ## Create the geoprocessor object.
@@ -47,12 +48,12 @@ def algoritmo(root, spd_tol, buffr, n_freq, np):
             
         for serie in serie_List:
             gpsData = "data_" + str(fc_data) + "_" + str(samp_freq) + "sec_" + str(serie)
-            print gpsData
+            #print gpsData
             for tol_rs in tol_rs_List:
                 for sr in searchRadius_List:
                     searchRadius = str(sr) + " Feet"
                     finalData = "test" + gpsData[4:] + '_' + str(tol_rs) + '_' + 'esta_mejorada'
-                    print finalData
+                    #print finalData
 
                     start = time.clock()
                     ## dictionary with near segments and corresponding snap points.
@@ -65,16 +66,16 @@ def algoritmo(root, spd_tol, buffr, n_freq, np):
 
                     ## dictionary with the gps points --> {objectID: "gpsPoint":(x,y),"time":str,"dSpeed":float}
                     gpsDict = gpsDataDict(gpsData)
-                    print len(gpsDict)
+                    #print len(gpsDict)
                     if samp_freq not in d_gps:
                         d_gps[samp_freq] = {}
                     if serie not in d_gps[samp_freq]:
                         d_gps[samp_freq][serie] = len(gpsDict)
 
-                    print "gps dictionary done..."
+                    #print "gps dictionary done..."
 
                     x_mid,y_mid = getMidPoint(gpsDict)
-                    print "midPoint : ({},{})".format(x_mid,y_mid)
+                    #print "midPoint : ({},{})".format(x_mid,y_mid)
 
                     ## a temporal feature class for a gps point.
                     arcpy.CreateFeatureclass_management(arcpy.env.workspace, tempData, "POINT", "", "DISABLED", "DISABLED", spatial_reference)
@@ -124,5 +125,7 @@ def algoritmo(root, spd_tol, buffr, n_freq, np):
                         d_res[samp_freq][tol_rs] = []
                     d_res[samp_freq][tol_rs].append((searchRadius,serie,res,round(time_elapsed,3)))
 
-    print d_gps
-    print d_res
+    #print d_gps
+    #print d_res
+    return finalData
+

@@ -3,8 +3,17 @@
  {% block content %} 
 	<h1>{{titulo}}</h1>
 	<ul>
-		<li> Ruta de Archivo : {{input.root.name}} </li>
-		<li> {% if input.description != '' %}{{input.description}}{% else %} Descripcion se esta escribiendo {% endif %} </li>
+		<li><b> Set de Datos :</b> {{input.GPS_layer}} </li>
+		<p></p>
+		<li><b> Red Vial :</b> {{input.red_vial_layer}} </li>
+		<p></p>
+		<li><b> Ruta de Base de Datos :</b> {{input.gbd_root}} </li>
+		<p></p>
+		<li><b> Sistema de Medidas :</b> {{input.metrica}} </li>
+		<p></p>
+		<li><b> Comprimido de Base de Datos :</b> {{input.gbd.path}} </li>
+		<p></p>
+		<li><b> Descripción :</b> {% if input.description != '' %}{{input.description}}{% else %} Descripcion se esta escribiendo {% endif %} </li>
 	</ul>
 
 	<a href="/apply/{{input.id}}"> Aplicar algoritmo</a>
