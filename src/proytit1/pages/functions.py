@@ -221,7 +221,7 @@ def mapMatch(j,tol_rs,snapData,tempData,assignData,tempTable,assignTable,searchR
                         if snapSpeed - tol_rs <= avSpeed <= snapSpeed + tol_rs:
                             fid_j = fid
                             acceptDict[j] = (snap_j,fid_j)
-                            print "\n\n**********Accepted (alt_j): {}({}) --> {}({})**********\n\n".format(i,fid_i,j,fid_j)
+                            #print "\n\n**********Accepted (alt_j): {}({}) --> {}({})**********\n\n".format(i,fid_i,j,fid_j)
                             solution = True
                             alt_j = True
                             break
@@ -233,7 +233,7 @@ def mapMatch(j,tol_rs,snapData,tempData,assignData,tempTable,assignTable,searchR
                     alt_i = False
                     Radius_val=int(searchRadius.split(" ")[0])
                     if Radius_val<=30:
-                        print "Radius_val j:{}".format(Radius_val)
+                        #print "Radius_val j:{}".format(Radius_val)
                         Radius_val=Radius_val+5
                         searchRadius=str(Radius_val) +" "+ searchRadius.split(" ")[1]
                         snapDict = near_segments(j,tempData,roadway,tempTable,searchRadius,gpsDict,snapDict)
@@ -262,7 +262,7 @@ def mapMatch(j,tol_rs,snapData,tempData,assignData,tempTable,assignTable,searchR
                 ## there is not more alt_i and alt_j
                 Radius_val=int(searchRadius.split(" ")[0])
                 if Radius_val<=30 and not alt_i and not alt_j:
-                    print "Radius_val i:{}".format(Radius_val)
+                    #print "Radius_val i:{}".format(Radius_val)
                     Radius_val=Radius_val+5
                     searchRadius=str(Radius_val) +" "+ searchRadius.split(" ")[1]
                     snapDict = near_segments(j,tempData,roadway,tempTable,searchRadius,gpsDict,snapDict)

@@ -5,4 +5,4 @@ from .models import Input
 class InputForm(forms.ModelForm):
 	class Meta:
 		model = Input
-		fields =['root', 'description']
+		fields =['red_vial_layer', 'GPS_layer', 'gbd',  'description', 'metrica']
